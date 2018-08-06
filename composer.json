@@ -1,0 +1,58 @@
+{
+    "name": "watr/laravel-model-metadata",
+    "description": "Laravel package for adding key value metadata relationship",
+    "keywords": [
+        "laravel",
+        "metadata",
+        "eloquent"
+    ],
+    "support": {
+        "issues": "https://github.com/wearetherobots/laravel-model-metadata/issues",
+        "source": "https://github.com/wearetherobots/laravel-model-metadata"
+    },
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aftab Hussain Miranda",
+            "email": "wafto.mx@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "illuminate/console": "5.6.x",
+        "illuminate/contracts": "5.6.x",
+        "illuminate/database": "5.6.x",
+        "illuminate/support": "5.6.x"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "^3.6",
+        "phpunit/phpunit": "^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "WATR\\Metadata\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WATR\\Metadata\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WATR\\Metadata\\ModelMetadataServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

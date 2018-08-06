@@ -1,0 +1,3 @@
+# Laravel Model Metadata
+
+WIP
