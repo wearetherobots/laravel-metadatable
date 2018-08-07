@@ -7,5 +7,5 @@ return [
     | Model metadata table name
     |--------------------------------------------------------------------------
     */
-    'table_name' => 'metadatas',
+    'table_name' => 'metadata',
 ];

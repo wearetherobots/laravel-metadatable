@@ -1,14 +1,14 @@
 {
-    "name": "watr/laravel-model-metadata",
-    "description": "Laravel package for adding key value metadata relationship",
+    "name": "watr/laravel-metadatable",
+    "description": "Laravel package for adding key value metadata relationship.",
     "keywords": [
         "laravel",
         "metadata",
         "eloquent"
     ],
     "support": {
-        "issues": "https://github.com/wearetherobots/laravel-model-metadata/issues",
-        "source": "https://github.com/wearetherobots/laravel-model-metadata"
+        "issues": "https://github.com/wearetherobots/laravel-metadatable/issues",
+        "source": "https://github.com/wearetherobots/laravel-metadatable"
     },
     "type": "library",
     "license": "MIT",
@@ -32,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "WATR\\Metadata\\": "src/"
+            "WATR\\Metadatable\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "WATR\\Metadata\\Tests\\": "tests/"
+            "WATR\\Metadatable\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -46,7 +46,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "WATR\\Metadata\\ModelMetadataServiceProvider"
+                "WATR\\Metadatable\\MetadatableServiceProvider"
             ]
         }
     },

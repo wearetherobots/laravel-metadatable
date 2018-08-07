@@ -5,9 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class CreateMetadatasTable.
+ * Class CreateMetadataTable.
  */
-class CreateMetadatasTable extends Migration
+class CreateMetadataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class CreateMetadatasTable extends Migration
      */
     public function up()
     {
-        Schema::create(config('model-metadatas.table_name'), function (Blueprint $table) {
+        Schema::create(config('metadatable.table_name'), function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('metadatable_id')
@@ -25,8 +25,6 @@ class CreateMetadatasTable extends Migration
 
             $table->string('metadatable_type')
                 ->index();
-
-            $table->string('key');
 
             $table->json('value');
 
@@ -41,6 +39,6 @@ class CreateMetadatasTable extends Migration
      */
     public function down()
     {
-        Schema::drop(config('model-metadatas.table_name'));
+        Schema::drop(config('metadatable.table_name'));
     }
 }

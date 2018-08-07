@@ -1,13 +1,13 @@
 <?php
 
-namespace WATR\Metadata;
+namespace WATR\Metadatable;
 
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class ModelMetadataServiceProvider.
+ * Class MetadatableServiceProvider.
  */
-class ModelMetadataServiceProvider extends ServiceProvider
+class MetadatableServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -18,8 +18,8 @@ class ModelMetadataServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                $this->configPath() => config_path('model-metadata.php')
-            ], 'model-metadata');
+                $this->configPath() => config_path('metadatable.php')
+            ], 'metadatable');
 
             $this->loadMigrationsFrom($this->migrationsDirectory());
         }
@@ -32,7 +32,7 @@ class ModelMetadataServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom($this->configPath(), 'model-metadata');
+        $this->mergeConfigFrom($this->configPath(), 'metadatable');
     }
 
     /**
@@ -42,7 +42,7 @@ class ModelMetadataServiceProvider extends ServiceProvider
      */
     protected function configPath()
     {
-        return __DIR__.'/../config/model-metadata.php';
+        return __DIR__.'/../config/metadatable.php';
     }
 
     /**
