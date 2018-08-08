@@ -57,6 +57,7 @@ class Metadata extends Model
         $data = $this->value;
         data_set($data, $key, value($value));
         $this->value = $data;
+
         return $this;
     }
 

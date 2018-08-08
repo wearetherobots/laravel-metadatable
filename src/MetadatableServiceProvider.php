@@ -18,7 +18,7 @@ class MetadatableServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                $this->configPath() => config_path('metadatable.php')
+                $this->configPath() => config_path('metadatable.php'),
             ], 'metadatable');
 
             $this->loadMigrationsFrom($this->migrationsDirectory());
