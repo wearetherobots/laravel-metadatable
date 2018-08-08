@@ -2,6 +2,7 @@
 
 namespace WATR\Metadatable\Tests;
 
+use Illuminate\Database\Schema\Blueprint;
 use WATR\Metadatable\MetadatableServiceProvider;
 
 /**
@@ -44,5 +45,10 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
             'database' => ':memory:',
             'prefix'   => '',
         ]);
+
+        $app['db']->connection()->getSchemaBuilder()->create('tests', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->nullable();
+        });
     }
 }
