@@ -50,11 +50,25 @@ class Metadata extends Model
      *
      * @param string $key
      * @param mixed $value
+     * @return $this
      */
     public function set($key, $value)
     {
         $data = $this->value;
         data_set($data, $key, value($value));
         $this->value = $data;
+        return $this;
+    }
+
+    /**
+     * Get a value with the given key.
+     *
+     * @param string $key
+     * @param mixed $default
+     * @return mixed
+     */
+    public function get($key, $default = null)
+    {
+        return data_get($this->value, $key, value($default));
     }
 }

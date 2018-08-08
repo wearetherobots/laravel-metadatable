@@ -47,4 +47,32 @@ class MetadataTest extends TestCase
 
         $this->assertEquals($model->value['test'], 'foobar');
     }
+
+    /** @test */
+    public function it_should_get_a_value()
+    {
+        $model = new Metadata();
+
+        $model->set('number', 123);
+
+        $this->assertEquals($model->get('number'), 123);
+    }
+
+    /** @test */
+    public function it_should_return_null_when_no_key_is_found()
+    {
+        $model = new Metadata();
+
+        $this->assertNull($model->get('invalid'));
+    }
+
+    /** @test */
+    public function it_should_return_value_from_closure_when_no_key_is_found()
+    {
+        $model = new Metadata();
+
+        $this->assertEquals($model->get('invalid', function () {
+            return 'Hello!';
+        }), 'Hello!');
+    }
 }
