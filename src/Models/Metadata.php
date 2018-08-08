@@ -15,7 +15,7 @@ class Metadata extends Model
      * @var array
      */
     protected $attributes = [
-        'value' => [],
+        'value' => '[]',
     ];
 
     /**
@@ -25,15 +25,6 @@ class Metadata extends Model
      */
     protected $casts = [
         'value' => 'array',
-    ];
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'value',
     ];
 
     /**
@@ -52,5 +43,18 @@ class Metadata extends Model
     public function metadatable()
     {
         return $this->morphTo();
+    }
+
+    /**
+     * Set a value to the given key.
+     *
+     * @param string $key
+     * @param mixed $value
+     */
+    public function set($key, $value)
+    {
+        $data = $this->value;
+        data_set($data, $key, value($value));
+        $this->value = $data;
     }
 }
