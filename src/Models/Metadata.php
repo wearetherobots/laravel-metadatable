@@ -39,6 +39,8 @@ class Metadata extends Model
 
     /**
      * Get all of the owning metadatable models.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function metadatable()
     {

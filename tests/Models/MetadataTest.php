@@ -4,6 +4,7 @@ namespace WATR\Metadatable\Tests\Models;
 
 use WATR\Metadatable\Tests\TestCase;
 use WATR\Metadatable\Models\Metadata;
+use WATR\Metadatable\Tests\TestModel;
 
 /**
  * Class MetadataTest.
@@ -74,5 +75,17 @@ class MetadataTest extends TestCase
         $this->assertEquals($model->get('invalid', function () {
             return 'Hello!';
         }), 'Hello!');
+    }
+
+    /** @test */
+    public function calling_metadatable_should_return_collection_of_related_models()
+    {
+        $model = TestModel::create(['name' => 'testing']);
+
+        $meta = Metadata::find($model->metadata->id);
+
+        $this->assertNotNull($meta);
+
+        $this->assertEquals($model->id, $meta->metadatable()->first()->id);
     }
 }

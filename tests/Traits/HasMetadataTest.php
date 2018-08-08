@@ -31,4 +31,18 @@ class HasMetadataTest extends TestCase
 
         $this->assertEquals($model->metadata->get('testKey'), 123);
     }
+
+    /** @test */
+    public function deleting_has_metadata_model_should_delete_metadata()
+    {
+        $model = TestModel::create(['name' => 'testing']);
+
+        $metadataId = $model->metadata->id;
+
+        $this->assertNotNull(app(config('metadatable.model'))->find($metadataId));
+
+        $model->delete();
+
+        $this->assertNull(app(config('metadatable.model'))->find($metadataId));
+    }
 }
