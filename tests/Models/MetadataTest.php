@@ -88,4 +88,27 @@ class MetadataTest extends TestCase
 
         $this->assertEquals($model->id, $meta->metadatable()->first()->id);
     }
+
+    /** @test */
+    public function it_should_remove_a_value_in_the_give_path()
+    {
+        $model = new Metadata();
+
+        $model->set('number', 123);
+
+        $model->remove('number');
+
+        $this->assertNull($model->get('number'));
+    }
+
+    /** @test */
+    public function it_should_tell_if_a_key_path_is_present_on_the_metadata()
+    {
+        $model = new Metadata();
+
+        $model->set('number', 123);
+
+        $this->assertTrue($model->has('number'));
+        $this->assertFalse($model->has('invalid'));
+    }
 }

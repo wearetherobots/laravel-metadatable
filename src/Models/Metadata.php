@@ -74,4 +74,30 @@ class Metadata extends Model
     {
         return data_get($this->value, $key, value($default));
     }
+
+    /**
+     * Remove the value from the given $key.
+     *
+     * @param string $key
+     * @return $this
+     */
+    public function remove($key)
+    {
+        $data = $this->value;
+        array_forget($data, $key);
+        $this->value = $data;
+
+        return $this;
+    }
+
+    /**
+     * Tells if the given $key is present.
+     *
+     * @param string $key
+     * @return $this
+     */
+    public function has($key)
+    {
+        return array_has($this->value, $key);
+    }
 }
